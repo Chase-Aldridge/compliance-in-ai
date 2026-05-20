@@ -1327,11 +1327,10 @@
           </div>
           <div class="card" style="text-align: left;">
             <h4 style="color: var(--accent2);">100,000 calls per day</h4>
-            <p>You cannot read the log. You cannot predict any one call. You can only watch distributions and sample.</p>
+            <p>You cannot read every log. You can only watch distributions and sample.</p>
           </div>
         </div>
         <p class="fragment fade-up" style="margin-top: 36px; text-align: center; font-size: 1.2em; color: var(--text); font-weight: 600; max-width: 880px; margin-left: auto; margin-right: auto;">
-          Same engineer cannot use the same toolkit at both ends.<br>
           The wall is not stakes. <span class="accent">The wall is physics.</span>
         </p>
         <aside class="notes">
@@ -1402,7 +1401,7 @@
           <div class="fragment fade-up">
             <div class="card" style="text-align: left;">
               <h4>The methodology</h4>
-              <p style="margin-top: 10px;">SMEs decide blind. The interface emulates the live workflow at submit time. Their call lands first. Then the AI's analysis and decision get revealed with their commentary captured.</p>
+              <p style="margin-top: 10px;">SMEs decide blind. The interface emulates the live workflow at submit time. They submit their answer. Then the AI's analysis and decision get revealed with their commentary captured.</p>
               <p style="margin-top: 10px;">Zero anchoring bias by construction. Every decision is a calibration row.</p>
             </div>
           </div>
@@ -1419,7 +1418,7 @@
           </div>
         </div>
         <p class="fragment fade-up" style="margin-top: 28px; text-align: center; font-size: 1.1em; color: var(--text); font-weight: 500;">
-          Non-engineers iterate prompts without touching code. <span class="accent" style="font-weight: 700;">Versioned, replayable, auditable.</span>
+          Non-engineers CAN iterate prompts without touching code. <span class="accent" style="font-weight: 700;">Versioned, replayable, auditable.</span>
         </p>
         <aside class="notes">
           The Prompt Lab. The hub of enterprise AI compliance work.
@@ -1534,137 +1533,6 @@
           Three. Tone, format, and framing drift never show up in metrics. Only in reads. The AI starts hedging too much, or losing structure, or sounding less like the brand. Nobody's eval set scores tone. A human reading the sample catches it on day one.
 
           Notice the leverage. The same blind UI we built for SME calibration now runs blind review every day. The infrastructure compounds.
-        </aside>
-      </section>
-
-      <!-- ====================================================
-           SLIDE 20: SET AND FORGET IS THE FAILURE MODE
-           ==================================================== -->
-      <section data-transition="slide">
-        <div class="slide-label">Enterprise &middot; Failure Mode</div>
-        <h2>Set And Forget Is The Failure Mode.</h2>
-        <h3 style="margin-bottom: 24px;">Five real incidents. None caught by alerts. All caught by humans staying in the loop.</h3>
-        <div class="grid-2 fragment fade-up" style="margin-top: 20px; gap: 16px;">
-          <div class="failure-tile">
-            <div class="fail-tag">Failure 1 &middot; Tone drift</div>
-            <p>Email composer prompt drifted across three macro styles over a month. Aggregate accuracy fine. Reads sounded wrong.</p>
-          </div>
-          <div class="failure-tile">
-            <div class="fail-tag">Failure 2 &middot; Logging gap</div>
-            <p>Co-pilot mode shipped without writing decision rows. 174 calls. Zero log entries. Audit trail had a hole nobody noticed for ten days.</p>
-          </div>
-          <div class="failure-tile">
-            <div class="fail-tag">Failure 3 &middot; Vendor field bug</div>
-            <p>Identity vendor changed payload schema. Auto-invite pulled the wrong email field. Real users got nothing for two days.</p>
-          </div>
-          <div class="failure-tile">
-            <div class="fail-tag">Failure 4 &middot; Baseline drift</div>
-            <p>The live manual review pipeline carried its own drift. The eval set built from it carried the drift forward. Golden set rebuild.</p>
-          </div>
-        </div>
-        <div class="fragment fade-up" style="margin-top: 16px; max-width: 720px; margin-left: auto; margin-right: auto;">
-          <div class="failure-tile" style="background: rgba(240,192,64,0.08); border-color: rgba(240,192,64,0.25);">
-            <div class="fail-tag" style="color: var(--accent-warm);">Failure 5 &middot; Approval gate blocking the gate</div>
-            <p style="color: var(--text);">The criteria list that unlocks the next autonomy tier has been pending for weeks. The gate itself becomes the blocker. Humans have to move too.</p>
-          </div>
-        </div>
-        <aside class="notes">
-          Set and forget is the failure mode. Five real incidents from the last quarter. All anonymized. None caught by alerts. All caught by humans staying in the loop.
-
-          One. Email composer tone drifted across three macro styles over a month. Aggregate accuracy was fine. The reads sounded wrong. SME caught it on a sample read.
-
-          Two. Co-pilot mode shipped without writing decision rows. One hundred seventy four calls in. Zero log entries. The audit trail had a hole nobody noticed for ten days. Caught when someone asked "how often does the co-pilot win" and there were no rows to count.
-
-          Three. Identity vendor changed their payload schema. The auto-invite pulled the wrong email field. Real users got nothing for two days. Caught when a support ticket asked where the email was.
-
-          Four. The live manual review pipeline carried its own drift, between subject matter experts and over time. The eval set we built from it carried that drift forward. Required a partial golden set rebuild against fresh blind reviews.
-
-          Five. The criteria list that unlocks the next autonomy tier has been pending for weeks. The approval gate itself became the blocker. Humans have to move too. Set and forget cuts both ways.
-
-          The lesson on all five. The system tells you it is working. Reads tell you whether it is actually working. Always have humans reading.
-        </aside>
-      </section>
-
-      <!-- ====================================================
-           SLIDE 21: RISK x AUTONOMY MATRIX (HERO)
-           ==================================================== -->
-      <section data-transition="slide">
-        <div class="slide-label">Enterprise &middot; Hero Slide</div>
-        <h2>Risk &times; Autonomy.</h2>
-        <h3 style="margin-bottom: 22px;">Documentation, audit depth, and governance cadence scale with grid position.</h3>
-        <div class="matrix-wrap fragment fade-up">
-          <div class="matrix-grid">
-            <div class="matrix-corner">
-              <span>Risk</span>
-              <span>&times;</span>
-              <span>Autonomy</span>
-            </div>
-            <div class="matrix-axis-x">Human-controlled</div>
-            <div class="matrix-axis-x">Co-pilot</div>
-            <div class="matrix-axis-x">Autonomous</div>
-
-            <div class="matrix-axis-y">Low risk</div>
-            <div class="matrix-cell cell-safe">
-              <span class="cell-tag">Green &middot; LL</span>
-              <span class="cell-text">Light docs. Spot-check sample. No formal cadence.</span>
-            </div>
-            <div class="matrix-cell cell-safe">
-              <span class="cell-tag">Green &middot; LC</span>
-              <span class="cell-text">Standard process docs. Monthly sample review. Versioned prompts.</span>
-            </div>
-            <div class="matrix-cell cell-mid">
-              <span class="cell-tag">Yellow &middot; LA</span>
-              <span class="cell-text">Per-decision logging. Weekly sample. Drift dashboard. Rollback ready.</span>
-            </div>
-
-            <div class="matrix-axis-y">Medium risk</div>
-            <div class="matrix-cell cell-safe">
-              <span class="cell-tag">Green &middot; ML</span>
-              <span class="cell-text">Standard docs. Weekly sample. Decision rationale captured.</span>
-            </div>
-            <div class="matrix-cell cell-mid">
-              <span class="cell-tag">Yellow &middot; MC</span>
-              <span class="cell-text">Full logging. Blind sampled review daily. Drift detection on schedule.</span>
-            </div>
-            <div class="matrix-cell cell-hot">
-              <span class="cell-tag">Red &middot; MA</span>
-              <span class="cell-text">Continuous drift monitor. Kill switch. Daily blind review. Calibration replays.</span>
-            </div>
-
-            <div class="matrix-axis-y">High risk</div>
-            <div class="matrix-cell cell-mid">
-              <span class="cell-tag">Yellow &middot; HL</span>
-              <span class="cell-text">Formal approval flow. Per-decision audit. Independent review required.</span>
-            </div>
-            <div class="matrix-cell cell-hot">
-              <span class="cell-tag">Red &middot; HC</span>
-              <span class="cell-text">Per-decision audit. Continuous review queue. Two-person rule on overrides.</span>
-            </div>
-            <div class="matrix-cell cell-hot">
-              <span class="cell-tag">Red &middot; HA</span>
-              <span class="cell-text">Stop. Not yet. Move down a row or a column before turning it on.</span>
-            </div>
-          </div>
-        </div>
-        <p class="fragment fade-up" style="margin-top: 24px; text-align: center; font-size: 1.05em; color: var(--text-mid);">
-          Place every AI feature on the grid before you ship it. Move down or left, never up or right, without re-earning trust.
-        </p>
-        <aside class="notes">
-          The hero slide. Risk by Autonomy. Three by three.
-
-          The axes. Vertical is risk. Low, medium, high. The downside if a single call is wrong. Low risk is annoying. Medium risk is expensive. High risk is regulatory, reputational, or safety.
-
-          Horizontal is autonomy. Human-controlled, co-pilot, autonomous. Human-controlled means a human makes every call, the AI assists. Co-pilot means the AI proposes, the human accepts or overrides. Autonomous means the AI decides and acts, the human reviews after the fact at most.
-
-          The cells tell you the documentation, audit depth, and governance cadence required for that combination.
-
-          Green cells. Light docs. Sample checks. Standard process. Versioned prompts.
-
-          Yellow cells. Full per-decision logging. Daily or weekly blind sampling. Drift dashboards. Calibration replays on schedule. Rollback ready.
-
-          Red cells. Continuous drift monitoring. Kill switches. Two-person rule on overrides. The bottom-right cell, high risk and full autonomy, says stop. Not yet. Move down a row or move left a column before you ship that.
-
-          How to use the matrix. Place every AI feature on the grid before you ship it. Then walk it forward, slowly, earning trust. Move down or left. Never up or right without re-earning. The mode progression dial on the personal side is this same idea at the bot level. The matrix is the same idea at the feature level.
         </aside>
       </section>
 
